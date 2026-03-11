@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Yashdeep Sankhla — Cybersecurity Professional (Sentinel)</title>
+  <title>Yashdeep Sankhla — Sentinel | Cybersecurity Professional</title>
   <meta name="description" content="Cybersecurity portfolio of Yashdeep Sankhla — DFIR, VAPT, SOC, Penetration Testing.">
-  <meta name="keywords" content="cybersecurity, VAPT, penetration testing, SOC, DFIR, ethical hacker, Yashdeep Sankhla, Sentinel">
-
   <meta property="og:title" content="Yashdeep Sankhla (Sentinel)">
   <meta property="og:description" content="Explore the projects and achievements of Yashdeep Sankhla, a cybersecurity enthusiast and ethical hacker.">
-  <meta property="og:image" content="URL_to_an_image_representing_your_site">
   <meta property="og:url" content="https://digitalrajan22m.github.io/anondgr/">
 
   <!-- Favicons -->
@@ -19,811 +15,601 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon_io/favicon-16x16.png">
   <link rel="manifest" href="assets/img/favicon_io/site.webmanifest">
 
-  <!-- Google Fonts -->
+  <!-- Fonts — Cyberpunk Stack -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
+  <!-- Icons — CDN only -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
   <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
   <link href="assets/vendor/aos/aos.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
-  <!-- Main CSS (Cyberpunk Theme) -->
+  <!-- Main CSS -->
   <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
 <body class="index-page">
 
-  <!-- Matrix Rain Canvas -->
+  <!-- Matrix Rain -->
   <canvas id="matrix-canvas"></canvas>
   <div class="cyber-grid"></div>
+  <div class="scanlines"></div>
 
-  <!-- ─── PRELOADER ─── -->
+  <!-- PRELOADER -->
   <div id="preloader">
-    <div class="preloader-title">SENTINEL</div>
-    <div class="preloader-msg" id="boot-msg">INITIALIZING SECURE ENVIRONMENT...</div>
-    <div class="preloader-bar-wrap">
-      <div class="preloader-bar"></div>
+    <div class="preloader-inner">
+      <div class="preloader-logo">SENTINEL<span>::</span>SYS</div>
+      <div class="preloader-msg" id="boot-msg">INITIALIZING SECURE ENVIRONMENT...</div>
+      <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
+      <div class="preloader-sub">CYBERSECURITY COMMAND CENTER v2.5</div>
     </div>
-    <div class="preloader-msg" id="boot-status">[ LOADING SYSTEM MODULES ]</div>
   </div>
 
-  <!-- ─── HEADER ─── -->
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+  <!-- HEADER -->
+  <header id="header" class="header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">[SENTINEL<span class="logo-sep">::</span>SYS]</a>
 
-      <a href="index.html" class="logo d-flex align-items-center">
-        <h1 class="sitename">Sentinel</h1>
-      </a>
-
-      <div class="nav-status d-none d-lg-flex">
-        <span><span class="status-dot"></span>ONLINE</span>
-        <span id="nav-clock">00:00:00</span>
+      <div class="nav-hud">
+        <span class="hud-item"><span class="hud-dot"></span>ONLINE</span>
+        <span class="hud-item" id="nav-clock">00:00:00</span>
+        <span class="hud-item hud-status">SYS_OK</span>
       </div>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#education">Resume</a></li>
-          <li><a href="#portfolio">Projects</a></li>
-          <li><a href="#certifications">Certs</a></li>
-          <li><a href="#achievements">Achievements</a></li>
-          <li><a href="#contact">Ping Me</a></li>
+          <li><a href="#hero" class="active"><span class="nav-num">01.</span>Home</a></li>
+          <li><a href="#about"><span class="nav-num">02.</span>About</a></li>
+          <li><a href="#education"><span class="nav-num">03.</span>Resume</a></li>
+          <li><a href="#portfolio"><span class="nav-num">04.</span>Projects</a></li>
+          <li><a href="#certifications"><span class="nav-num">05.</span>Certs</a></li>
+          <li><a href="#achievements"><span class="nav-num">06.</span>Wins</a></li>
+          <li><a href="#contact" class="nav-cta">Ping Me</a></li>
         </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
+      <button class="mobile-nav-toggle" id="mobileBtn" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
 
+  <!-- Mobile Nav Overlay -->
+  <div id="mobile-nav-overlay">
+    <button class="mob-close" id="mobClose">&#10005;</button>
+    <nav>
+      <a href="#hero"           class="mob-link"><span>01.</span> Home</a>
+      <a href="#about"          class="mob-link"><span>02.</span> About</a>
+      <a href="#education"      class="mob-link"><span>03.</span> Resume</a>
+      <a href="#portfolio"      class="mob-link"><span>04.</span> Projects</a>
+      <a href="#certifications" class="mob-link"><span>05.</span> Certs</a>
+      <a href="#achievements"   class="mob-link"><span>06.</span> Wins</a>
+      <a href="#contact"        class="mob-link mob-cta">&#9658; Ping Me</a>
+    </nav>
+  </div>
+
   <main class="main">
 
-    <!-- ─── HERO SECTION ─── -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/BG.jpg" alt="" data-aos="fade-in">
-
-      <!-- Radar -->
+    <!-- HERO -->
+    <section id="hero" class="hero section">
+      <div class="container">
+        <div class="hero-content text-center">
+          <div class="hero-tag" data-aos="fade-down">// CYBERSECURITY PROFESSIONAL &mdash; AHMEDABAD, IN</div>
+          <h1 class="hero-name glitch" data-text="Yashdeep Sankhla" data-aos="fade-up" data-aos-delay="100">Yashdeep Sankhla</h1>
+          <div class="hero-role" data-aos="fade-up" data-aos-delay="200">
+            <span class="role-prefix">root@sentinel:~$&nbsp;</span><span class="typed" data-typed-items="Cybersecurity Analyst,VAPT Analyst,Bug Bounty Learner,CTF Player,SOC Analyst"></span><span class="cursor-blink">&#9608;</span>
+          </div>
+          <div class="hero-stats" data-aos="fade-up" data-aos-delay="300">
+            <div class="stat-box"><div class="stat-val">5+</div><div class="stat-key">Internships</div></div>
+            <div class="stat-divider">//</div>
+            <div class="stat-box"><div class="stat-val">4</div><div class="stat-key">Projects</div></div>
+            <div class="stat-divider">//</div>
+            <div class="stat-box"><div class="stat-val">8.36</div><div class="stat-key">CGPA</div></div>
+            <div class="stat-divider">//</div>
+            <div class="stat-box"><div class="stat-val">256<small>th</small></div><div class="stat-key">CTF Rank</div></div>
+          </div>
+          <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
+            <a href="#portfolio" class="btn-cyber">&#9654; View Projects</a>
+            <a href="assets/resume/Yashdeep_Cyber_Domain.pdf" target="_blank" class="btn-cyber btn-outline" download>&#8681; Export CV</a>
+            <a href="#contact" class="btn-cyber btn-ghost">&#10140; Ping Me</a>
+          </div>
+        </div>
+      </div>
       <div class="hero-radar">
-        <svg viewBox="0 0 230 230" xmlns="http://www.w3.org/2000/svg">
-          <circle class="radar-ring" cx="115" cy="115" r="108"/>
-          <circle class="radar-ring" cx="115" cy="115" r="80"/>
-          <circle class="radar-ring" cx="115" cy="115" r="52"/>
-          <circle class="radar-ring" cx="115" cy="115" r="24"/>
-          <line class="radar-cross" x1="115" y1="7" x2="115" y2="223"/>
-          <line class="radar-cross" x1="7" y1="115" x2="223" y2="115"/>
-          <!-- Sweep -->
-          <path class="radar-sweep" d="M115,115 L115,7 A108,108 0 0,1 207,160 Z"
-                stroke="none" fill="url(#sweepGrad)" opacity="0.45"/>
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="100" cy="100" r="95" stroke="rgba(0,255,65,0.12)" stroke-width="1" fill="none"/>
+          <circle cx="100" cy="100" r="65" stroke="rgba(0,255,65,0.10)" stroke-width="1" fill="none"/>
+          <circle cx="100" cy="100" r="35" stroke="rgba(0,255,65,0.08)" stroke-width="1" fill="none"/>
+          <line x1="5" y1="100" x2="195" y2="100" stroke="rgba(0,255,65,0.07)" stroke-width="1"/>
+          <line x1="100" y1="5" x2="100" y2="195" stroke="rgba(0,255,65,0.07)" stroke-width="1"/>
+          <g class="radar-sweep">
+            <path d="M100 100 L100 5 A95 95 0 0 1 195 100 Z" fill="url(#rg)"/>
+            <line x1="100" y1="100" x2="100" y2="5" stroke="rgba(0,255,65,0.7)" stroke-width="1.5"/>
+          </g>
+          <circle cx="140" cy="60" r="3" fill="#00ff41" opacity="0.9" class="radar-blip"/>
+          <circle cx="70" cy="130" r="2" fill="#00f5ff" opacity="0.7" class="radar-blip2"/>
           <defs>
-            <radialGradient id="sweepGrad" cx="115" cy="115" r="108" gradientUnits="userSpaceOnUse">
-              <stop offset="0%" stop-color="#00ff41" stop-opacity="0.7"/>
-              <stop offset="100%" stop-color="#00ff41" stop-opacity="0"/>
+            <radialGradient id="rg" cx="100" cy="100" r="95" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="rgba(0,255,65,0.15)"/>
+              <stop offset="100%" stop-color="rgba(0,255,65,0)"/>
             </radialGradient>
           </defs>
-          <!-- Arm -->
-          <line class="radar-arm" x1="115" y1="115" x2="115" y2="7"/>
-          <!-- Blips -->
-          <circle cx="148" cy="72" r="2.5" fill="#00ff41">
-            <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="82" cy="138" r="2" fill="#00f5ff">
-            <animate attributeName="opacity" values="0.6;0;0.6" dur="3s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="158" cy="148" r="1.8" fill="#00ff41">
-            <animate attributeName="opacity" values="0.7;0;0.7" dur="2.5s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="72" cy="80" r="1.5" fill="#bf00ff">
-            <animate attributeName="opacity" values="0.5;0;0.5" dur="4s" repeatCount="indefinite"/>
-          </circle>
         </svg>
       </div>
+      <div class="scroll-hint"><span class="scroll-line"></span><span class="scroll-text">SCROLL</span></div>
+    </section>
 
-      <div class="container d-flex flex-column align-items-center justify-content-center text-center"
-           data-aos="fade-up" data-aos-delay="100">
-
-        <div class="hero-eyebrow">// CYBERSECURITY PROFESSIONAL — SENTINEL</div>
-
-        <h2 class="glitch-title" data-text="YASHDEEP SANKHLA">It's Yashdeep Sankhla</h2>
-
-        <p class="typed-wrapper">
-          <span id="typed-hero" class="typed"
-                data-typed-items="Cybersecurity Analyst,VAPT Analyst,Bug Bounty Learner,CTF Player,SOC Analyst"></span>
-          <span class="typed-cursor"></span>
-        </p>
-
-        <!-- Stats -->
-        <div class="hero-stats">
-          <div class="stat-item">
-            <span class="stat-val">5+</span>
-            <span class="stat-label">Internships</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">4</span>
-            <span class="stat-label">Projects</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">8.36</span>
-            <span class="stat-label">CGPA</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-val">256th</span>
-            <span class="stat-label">CTF Rank</span>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="hero-cta-wrap">
-          <a href="#portfolio" class="btn-cyber"><span>▶ VIEW PROJECTS</span></a>
-          <a href="#contact"   class="btn-cyber secondary"><span>⚡ PING ME</span></a>
-        </div>
-
-      </div>
-    </section><!-- /Hero Section -->
-
-    <!-- ─── ABOUT SECTION ─── -->
+    <!-- ABOUT -->
     <section id="about" class="about section">
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="section-title text-center mb-5" data-aos="fade-up">
-          <span class="section-tag">// SYS.INFO —</span>
-          <h2>ABOUT <span>AGENT</span></h2>
-          <span class="section-line"></span>
-        </div>
-
-        <div class="about-grid row gy-4">
-
-          <!-- Left: Profile + Skills -->
-          <div class="col-md-6">
-            <div class="row gy-3">
-
-              <!-- Profile image — full width, centered -->
-              <div class="col-12 text-center">
-                <div class="profile-img-wrap d-inline-block">
-                  <img src="assets/img/Yashdeep.jpeg" class="img-fluid" alt="Yashdeep Sankhla">
-                </div>
-              </div>
-
-              <!-- Profile data — full width panel below image -->
-              <div class="col-12 about-info">
-                <div class="cyber-panel">
-                  <div class="panel-header">
-                    <span class="panel-dot pd-r"></span>
-                    <span class="panel-dot pd-y"></span>
-                    <span class="panel-dot pd-g"></span>
-                    &nbsp;identity.profile
-                  </div>
-                  <div class="panel-body profile-data">
-                    <p><strong>Name</strong><span>Yashdeep Sankhla (Sentinel)</span></p>
-                    <p><strong>Profile</strong><span>Cybersecurity Professional</span></p>
-                    <p><strong>Email</strong><span>y4shsec@proton.me</span></p>
-                    <p><strong>Phone</strong><span>+91 9898694801</span></p>
-                    <p><strong>Location</strong><span>Ahmedabad, Gujarat, IN</span></p>
-                  </div>
-                </div>
-              </div>
-
-            </div><!-- /row -->
-
-            <!-- Skills -->
-            <div class="skills-content skills-animation mt-4">
-              <div class="cyber-panel">
-                <div class="panel-header">
-                  <span class="panel-dot pd-r"></span>
-                  <span class="panel-dot pd-y"></span>
-                  <span class="panel-dot pd-g"></span>
-                  &nbsp;system.skills — diagnostics
-                </div>
-                <div class="panel-body">
-
-                  <div class="skill-row">
-                    <div class="skill-label">
-                      <span>Cybersecurity &amp; Penetration Testing</span>
-                      <span class="skill-pct">89.9%</span>
-                    </div>
-                    <div class="progress-bar-wrap">
-                      <div class="progress-bar" role="progressbar"
-                           aria-valuenow="89.9" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-
-                  <div class="skill-row">
-                    <div class="skill-label">
-                      <span>Programming &amp; Scripting</span>
-                      <span class="skill-pct">80%</span>
-                    </div>
-                    <div class="progress-bar-wrap">
-                      <div class="progress-bar" role="progressbar"
-                           aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-
-                  <div class="skill-row">
-                    <div class="skill-label">
-                      <span>Ethical Hacking &amp; Bug Bounty</span>
-                      <span class="skill-pct">85%</span>
-                    </div>
-                    <div class="progress-bar-wrap">
-                      <div class="progress-bar" role="progressbar"
-                           aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-
-                  <div class="skill-row">
-                    <div class="skill-label">
-                      <span>CTF &amp; Vulnerability Research</span>
-                      <span class="skill-pct">89%</span>
-                    </div>
-                    <div class="progress-bar-wrap">
-                      <div class="progress-bar" role="progressbar"
-                           aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-
-                  <div class="skill-row">
-                    <div class="skill-label">
-                      <span>Active Directory &amp; Privilege Escalation</span>
-                      <span class="skill-pct">81%</span>
-                    </div>
-                    <div class="progress-bar-wrap">
-                      <div class="progress-bar" role="progressbar"
-                           aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-          </div><!-- /col-md-6 left -->
-
-          <!-- Right: About Text -->
-          <div class="col-md-6">
-            <div class="about-me">
-              <h4>About me</h4>
-              <p>
-                I am a Cybersecurity professional with hands-on experience in Digital Forensics &amp; Incident
-                Response (DFIR), SOC monitoring, and Vulnerability Assessment &amp; Penetration Testing (VAPT).
-                I have worked on forensic investigations using tools like Autopsy, performed log monitoring and
-                threat detection using Wazuh SIEM, and network traffic analysis with Wireshark and Snort IDS.
-                Along with strong fundamentals in networking and scripting, I am eager to contribute to incident
-                response, threat hunting, and forensic investigations in a security-focused role.
-              </p>
-              <p>
-                I completed my B.Tech in Computer Science (Cyber Security) where I learned and practiced
-                cybersecurity fundamentals, SOC operations, network security, forensics, and penetration testing.
-                During my B.Tech in Computer Science (Cyber Security), I studied core concepts of cybersecurity
-                including network security, ethical hacking fundamentals, digital forensics, incident response,
-                and vulnerability assessment &amp; penetration testing (VAPT). I gained hands-on practical exposure
-                through projects and labs such as digital evidence investigation using Autopsy, packet capture and
-                traffic analysis using Wireshark and Snort, and DDoS detection using Wazuh SIEM. This helped me
-                build strong skills in threat detection, log analysis, and secure networking, along with report
-                writing and documentation.
-              </p>
-              <p>
-                I am a L3 Network Engineer (Switching) with practical experience in designing, deploying, and
-                managing enterprise network infrastructure across access, distribution, and core layers. I have
-                strong expertise in configuring VLANs, trunking, Layer 2/3 features, and port security, along
-                with troubleshooting network issues using tools like Wireshark and SolarWinds. I also have
-                experience working with MikroTik routers, including DHCP, NAT, firewall rules, and load balancing.
-                I am passionate about building secure, scalable networks and ensuring high availability and performance.
-              </p>
-            </div>
-          </div>
-
-        </div><!-- /about-grid row -->
-      </div>
-    </section><!-- /About Section -->
-
-    <!-- ─── RESUME SECTION ─── -->
-    <section id="education" class="resume section">
       <div class="container">
-
-        <div class="section-title text-center mb-5" data-aos="fade-up">
-          <span class="section-tag">// ACCESS.LOG —</span>
-          <h2>CAREER <span>TIMELINE</span></h2>
-          <span class="section-line"></span>
+        <div class="section-title" data-aos="fade-up">
+          <span class="sec-num">02.</span><h2>About<span class="accent">_</span>Me</h2>
+          <div class="title-bar"></div>
         </div>
-
-        <div class="resume-cols row">
-
-          <!-- Education -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Education</h3>
-
-            <div class="resume-item">
-              <h4>Bachelor of Technology — Specialization in Cybersecurity</h4>
-              <h5>CGPA: 8.36 | Completed: April 2025</h5>
-              <p><em>Silver Oak University, Ahmedabad, Gujarat, IN</em></p>
-              <p>Focused on cybersecurity fundamentals, digital forensics, incident response, and network security.
-                 Gained practical exposure through labs and projects such as forensic investigation using Autopsy,
-                 network traffic analysis, and vulnerability assessment.</p>
-            </div>
-
-            <div class="resume-item">
-              <h4>Higher Secondary (HSC), Gujarat Board — Mathematics (Science Group A)</h4>
-              <h5>Score: 65% | Completed: May 2021</h5>
-              <p><em>Eklavya School of Science, Ahmedabad, Gujarat, IN</em></p>
-              <p>Completed higher secondary education with core academic focus and foundational technical learning.</p>
-            </div>
-          </div><!-- /Education -->
-
-          <!-- Experience -->
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Professional Experience</h3>
-
-            <div class="resume-item">
-              <h4>Network Engineer (Switching)</h4>
-              <h5>Oct 2023 – Present</h5>
-              <p><em>Zen Exim Pvt. Ltd.</em></p>
-              <ul>
-                <li>Design and deploy switching solutions across access, distribution, and core network layers.</li>
-                <li>Configure VLANs, trunking, STP, EtherChannel, and Layer 2/Layer 3 switching features.</li>
-                <li>Implement port security and network hardening practices to strengthen infrastructure security.</li>
-                <li>Monitor network health, perform troubleshooting, firmware upgrades, and issue resolution using tools like Wireshark and SolarWinds.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Cybersecurity Intern</h4>
-              <h5>Aug 2023 – Sep 2023</h5>
-              <p><em>Tech Defence Solutions</em></p>
-              <ul>
-                <li>Completed hands-on labs on TryHackMe, PortSwigger, and Hack The Box (HTB).</li>
-                <li>Improved practical understanding of common web vulnerabilities, enumeration, and reporting.</li>
-                <li>Strengthened core concepts of ethical hacking and web exploitation techniques.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Cybersecurity Intern</h4>
-              <h5>Feb 2024 – Mar 2024</h5>
-              <p><em>Sigma Training Institute</em></p>
-              <ul>
-                <li>Performed penetration testing on VPN and wireless networks to identify security gaps.</li>
-                <li>Conducted OSINT investigation to gather actionable public intelligence.</li>
-                <li>Assisted in firewall configuration, access control, and security hardening practices.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Cybersecurity Intern</h4>
-              <h5>Jul 2024 – Aug 2024</h5>
-              <p><em>Prodigy Infotech</em></p>
-              <ul>
-                <li>Developed Python-based security tools including Caesar Cipher, Password Strength Checker, and Packet Analyzer.</li>
-                <li>Improved scripting and automation skills for security tooling and testing.</li>
-                <li>Documented tool methodology, output validation, and results clearly.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Cyber Crime Investigator Intern</h4>
-              <h5>Aug 2024 – Sep 2024</h5>
-              <p><em>Cyber Forensics Solutions (CFSS)</em></p>
-              <ul>
-                <li>Assisted in forensic investigation workflows and digital evidence handling processes.</li>
-                <li>Performed metadata extraction and analysis to support investigation tasks.</li>
-                <li>Prepared case documentation and digital evidence reporting with proper format.</li>
-              </ul>
-            </div>
-
-            <div class="resume-item">
-              <h4>Cybersecurity Intern</h4>
-              <h5>Aug 2025 – Sep 2025</h5>
-              <p><em>Secuerium Technologies</em></p>
-              <ul>
-                <li>Performed VAPT on internal web applications and identified vulnerabilities.</li>
-                <li>Executed OWASP-based vulnerability assessment and documented findings with remediation steps.</li>
-                <li>Supported remediation verification and final security reporting.</li>
-              </ul>
-            </div>
-
-          </div><!-- /Experience -->
-
-        </div><!-- /row -->
-      </div>
-    </section><!-- /Resume Section -->
-
-    <!-- ─── PORTFOLIO SECTION ─── -->
-    <section id="portfolio" class="portfolio section">
-      <div class="container section-title" data-aos="fade-up">
-        <span class="section-tag">// OPS.ARCHIVE —</span>
-        <h2>ACTIVE <span>MISSIONS</span></h2>
-        <p>Delivering cutting-edge solutions and innovative security tools to fortify the digital landscape.</p>
-        <span class="section-line"></span>
-      </div>
-
-      <div class="container">
-        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-
-          <!-- Filters -->
-          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-            <li data-filter="*" class="filter-active">All Operations</li>
-            <li data-filter=".filter-cy">Cybersecurity</li>
-            <li data-filter=".filter-dev">Development</li>
-          </ul>
-
-          <!-- Grid -->
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
-            <!-- Project 1 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cy">
-              <img src="assets/img/portfolio/placeholder.png" class="img-fluid" alt="Autopsy DFIR">
-              <div class="portfolio-info">
-                <div class="hud-tl hud-corner"></div>
-                <div class="hud-br hud-corner"></div>
-                <h4>Digital Evidence Investigation (Autopsy)</h4>
-                <p>Forensic image analysis, deleted file recovery, and user activity reconstruction. (Aug–Sep 2024)</p>
-                <a href="assets/img/portfolio/placeholder.png" title="Digital Evidence Investigation"
-                   data-gallery="portfolio-gallery-cy" class="glightbox preview-link">
-                  <i class="bi bi-zoom-in"></i>
-                </a>
-                <a href="portfolio-autopsy.html" title="More Details" class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+        <div class="row gy-5 align-items-start">
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="profile-card">
+              <div class="card-header-bar">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="card-title-bar">identity.profile</span>
+              </div>
+              <div class="profile-top">
+                <div class="profile-img-wrap">
+                  <img src="assets/img/Yashdeep.jpeg" alt="Yashdeep Sankhla" class="profile-img">
+                  <div class="img-scan"></div>
+                </div>
+                <div class="profile-side-data profile-data">
+                  <div class="pd-row"><span class="pd-key">NAME</span><span class="pd-val">Yashdeep Sankhla</span></div>
+                  <div class="pd-row"><span class="pd-key">ALIAS</span><span class="pd-val neon">Sentinel</span></div>
+                  <div class="pd-row"><span class="pd-key">ROLE</span><span class="pd-val">Cybersecurity Professional</span></div>
+                  <div class="pd-row"><span class="pd-key">EMAIL</span><span class="pd-val"><a href="mailto:y4shsec@proton.me">y4shsec@proton.me</a></span></div>
+                  <div class="pd-row"><span class="pd-key">PHONE</span><span class="pd-val">+91 9898694801</span></div>
+                  <div class="pd-row"><span class="pd-key">LOC</span><span class="pd-val">Ahmedabad, Gujarat, IN</span></div>
+                </div>
+              </div>
+              <div class="profile-links">
+                <a href="https://github.com/y4shsec" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/yashdeep-sankhla-1a175b2bb/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
               </div>
             </div>
-
-            <!-- Project 2 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-dev">
-              <img src="assets/img/portfolio/placeholder.png" class="img-fluid" alt="Packet Analyzer">
-              <div class="portfolio-info">
-                <div class="hud-tl hud-corner"></div>
-                <div class="hud-br hud-corner"></div>
-                <h4>Network Packet Analyzer Tool</h4>
-                <p>Python/Scapy tool for live packet capture and protocol analysis. (Jul–Aug 2024)</p>
-                <a href="assets/img/portfolio/placeholder.png" title="Network Packet Analyzer"
-                   data-gallery="portfolio-gallery-dev" class="glightbox preview-link">
-                  <i class="bi bi-zoom-in"></i>
-                </a>
-                <a href="portfolio-packet-analyzer.html" title="More Details" class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+          </div>
+          <div class="col-lg-8" data-aos="fade-left" data-aos-delay="100">
+            <div class="terminal-box">
+              <div class="term-header">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">sentinel@system:~/about — bash</span>
+              </div>
+              <div class="term-body">
+                <p><span class="t-prompt">$</span> <span class="t-cmd">cat about_me.txt</span></p>
+                <p class="t-out">I am a Cybersecurity professional with hands-on experience in Digital Forensics &amp; Incident Response (DFIR), SOC monitoring, and Vulnerability Assessment &amp; Penetration Testing (VAPT). I have worked on forensic investigations using tools like Autopsy, performed log monitoring and threat detection using Wazuh SIEM, and network traffic analysis with Wireshark and Snort IDS. Along with strong fundamentals in networking and scripting, I am eager to contribute to incident response, threat hunting, and forensic investigations in a security-focused role.</p>
+                <br>
+                <p class="t-out">I completed my B.Tech in Computer Science (Cyber Security) where I learned and practiced cybersecurity fundamentals, SOC operations, network security, forensics, and penetration testing. I am a L3 Network Engineer (Switching) with practical experience in designing, deploying, and managing enterprise network infrastructure across access, distribution, and core layers.</p>
+                <p><span class="t-prompt">$</span> <span class="t-cursor-blink">&#9608;</span></p>
               </div>
             </div>
-
-            <!-- Project 3 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cy">
-              <img src="assets/img/portfolio/placeholder.png" class="img-fluid" alt="DDoS Detection">
-              <div class="portfolio-info">
-                <div class="hud-tl hud-corner"></div>
-                <div class="hud-br hud-corner"></div>
-                <h4>Network Traffic Analyzer for DDoS Detection</h4>
-                <p>Wireshark, Snort &amp; Wazuh SIEM-based DDoS and IP spoofing detection. (Apr 2025)</p>
-                <a href="assets/img/portfolio/placeholder.png" title="DDoS Detection"
-                   data-gallery="portfolio-gallery-cy" class="glightbox preview-link">
-                  <i class="bi bi-zoom-in"></i>
-                </a>
-                <a href="portfolio-ddos-detection.html" title="More Details" class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
+            <div class="skills-panel skills-animation" data-aos="fade-up" data-aos-delay="150">
+              <div class="panel-hdr">
+                <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+                <span class="term-title">diagnostics.skills — system_scan</span>
+              </div>
+              <div class="skills-body">
+                <div class="skill-row">
+                  <div class="sk-info"><span class="sk-name">Cybersecurity &amp; Penetration Testing</span><span class="sk-pct">89.9%</span></div>
+                  <div class="sk-track"><div class="sk-bar" style="--pct:89.9%" role="progressbar" aria-valuenow="89.9" aria-valuemin="0" aria-valuemax="100"></div></div>
+                </div>
+                <div class="skill-row">
+                  <div class="sk-info"><span class="sk-name">Programming &amp; Scripting</span><span class="sk-pct">80%</span></div>
+                  <div class="sk-track"><div class="sk-bar" style="--pct:80%" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div></div>
+                </div>
+                <div class="skill-row">
+                  <div class="sk-info"><span class="sk-name">Ethical Hacking &amp; Bug Bounty</span><span class="sk-pct">85%</span></div>
+                  <div class="sk-track"><div class="sk-bar" style="--pct:85%" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div></div>
+                </div>
+                <div class="skill-row">
+                  <div class="sk-info"><span class="sk-name">CTF &amp; Vulnerability Research</span><span class="sk-pct">89%</span></div>
+                  <div class="sk-track"><div class="sk-bar" style="--pct:89%" role="progressbar" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div></div>
+                </div>
+                <div class="skill-row">
+                  <div class="sk-info"><span class="sk-name">Active Directory &amp; Privilege Escalation</span><span class="sk-pct">81%</span></div>
+                  <div class="sk-track"><div class="sk-bar" style="--pct:81%" role="progressbar" aria-valuenow="81" aria-valuemin="0" aria-valuemax="100"></div></div>
+                </div>
               </div>
             </div>
-
-            <!-- Project 4 -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cy">
-              <img src="assets/img/portfolio/placeholder.png" class="img-fluid" alt="Metasploitable VAPT">
-              <div class="portfolio-info">
-                <div class="hud-tl hud-corner"></div>
-                <div class="hud-br hud-corner"></div>
-                <h4>Metasploitable 2 VAPT Lab</h4>
-                <p>Full VAPT — vsftpd backdoor &amp; Samba RCE exploitation with remediation docs. (Sep 2025)</p>
-                <a href="assets/img/portfolio/placeholder.png" title="Metasploitable VAPT"
-                   data-gallery="portfolio-gallery-cy" class="glightbox preview-link">
-                  <i class="bi bi-zoom-in"></i>
-                </a>
-                <a href="portfolio-metasploitable.html" title="More Details" class="details-link">
-                  <i class="bi bi-link-45deg"></i>
-                </a>
-              </div>
-            </div>
-
-          </div><!-- /isotope-container -->
-        </div>
-      </div>
-    </section><!-- /Portfolio Section -->
-
-    <!-- ─── CERTIFICATIONS SECTION ─── -->
-    <section id="certifications" class="certifications section">
-      <div class="container section-title" data-aos="fade-up">
-        <span class="section-tag">// ACCESS.TOKENS —</span>
-        <h2>CERTIFI<span>CATIONS</span></h2>
-        <p>Demonstrated expertise through industry-recognized certifications, hands-on workshops, and participation in cybersecurity challenges.</p>
-        <span class="section-line"></span>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <div class="row gy-4 gx-lg-5">
-
-          <div class="col-lg-12">
-            <div class="certifications-item d-flex justify-content-between">
-              <h3>Google Cybersecurity Professional (Coursera)</h3>
-              <h4>2024</h4>
-            </div>
           </div>
-
-          <div class="col-lg-12">
-            <div class="certifications-item d-flex justify-content-between">
-              <h3>Foundations of Cybersecurity (Google / Coursera)</h3>
-              <h4>6 Dec 2023</h4>
-            </div>
-          </div>
-
-          <div class="col-lg-12">
-            <div class="certifications-item d-flex justify-content-between">
-              <h3>Connect and Protect: Networks and Network Security (Google / Coursera)</h3>
-              <h4>06 Feb 2024</h4>
-            </div>
-          </div>
-
-          <div class="col-lg-12">
-            <div class="certifications-item d-flex justify-content-between">
-              <h3>Play It Safe: Manage Security Risks (Google / Coursera)</h3>
-              <h4>01 Jan 2024</h4>
-            </div>
-          </div>
-
-          <div class="col-lg-12">
-            <div class="certifications-item d-flex justify-content-between">
-              <h3>Cisco Networking Academy – Networking Basics</h3>
-              <h4>05 Feb 2025</h4>
-            </div>
-          </div>
-
-        </div><!-- /row cert list -->
-
-        <!-- Cert Images -->
-        <div class="row mt-5 justify-content-center gy-4">
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <img src="assets/img/portfolio/Foundations of Cybersecurity.jpeg"
-                 class="cert-img img-fluid" alt="Foundation of Cybersecurity">
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <img src="assets/img/portfolio/Connect and Protect-Networks and Network Security.jpeg"
-                 class="cert-img img-fluid" alt="Connect and Protect">
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <img src="assets/img/portfolio/Play It Safe-Manage Security Risks.jpeg"
-                 class="cert-img img-fluid" alt="Play It Safe">
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <img src="assets/img/portfolio/CISCO NETWORKING BASICS CERTIFICATE_pagee.jpg"
-                 class="cert-img img-fluid" alt="Cisco Networking Basics">
-          </div>
-          <div class="col-lg-4 col-md-6 col-sm-12">
-            <img src="assets/img/portfolio/Red_Team_Lead_Certificate.jpg"
-                 class="cert-img img-fluid" alt="Red Team Leader">
-          </div>
-        </div>
-
-      </div>
-    </section><!-- /Certifications Section -->
-
-    <!-- ─── ACHIEVEMENTS SECTION ─── -->
-    <section id="achievements" class="achievements section">
-      <div class="container section-title" data-aos="fade-up">
-        <span class="section-tag">// TROPHY.LOG —</span>
-        <h2>ACHIEVE<span>MENTS</span></h2>
-        <span class="section-line"></span>
-      </div>
-
-      <div class="container">
-        <div class="achievement-item" data-aos="fade-up">
-          <pre>🏆 RootCipher CTF 2025</pre>
-          <hr>
-          <p><i>Participated in RootCipher 2025 Capture The Flag (CTF) competition, where I solved real-world cybersecurity challenges involving web exploitation, OSINT, cryptography, and privilege escalation. This experience enhanced my problem-solving, technical analysis, and hands-on hacking skills in a competitive environment.</i></p>
-          <div style="text-align:center;">
-            <img src="assets/img/portfolio/Root_Cipher_CTF.jpg" alt="RootCipher CTF"
-                 style="max-width:100%;height:auto;width:40%;transition:transform 0.3s ease;">
-          </div>
-          <hr>
-        </div>
-
-        <div class="achievement-item" data-aos="fade-up">
-          <pre>🏆 Bypass CTF 2025 — National-Level Capture The Flag Competition</pre>
-          <hr>
-          <p><i>Awarded a participation certificate as Team Lead at Bypass CTF 2025, a 36-hour national-level CTF with 500 teams, securing 256th rank, showcasing leadership and practical skills in web exploitation, forensics, and cybersecurity.</i></p>
-          <div style="text-align:center;">
-            <img src="assets/img/portfolio/ByPass-CTF-Certificate.jpg" alt="Bypass CTF"
-                 style="max-width:100%;height:auto;width:40%;transition:transform 0.3s ease;">
-          </div>
-          <hr>
-        </div>
-
-        <div class="achievement-item" data-aos="fade-up">
-          <pre>🛡️ Ethical Hacking Workshop – Indian Cyber Club</pre>
-          <hr>
-          <p><i>Participated individually in a 3-day Ethical Hacking Workshop by Indian Cyber Club, gaining hands-on exposure to ethical hacking techniques and core cybersecurity concepts.</i></p>
-          <div style="text-align:center;">
-            <img src="assets/img/portfolio/ICC CERTIFICATE.jpg" alt="ICC Certificate"
-                 style="max-width:100%;height:auto;width:40%;transition:transform 0.3s ease;">
-          </div>
-          <hr>
-        </div>
-      </div>
-    </section><!-- /Achievements Section -->
-
-    <!-- ─── TOOLS SECTION ─── -->
-    <section id="tools" class="services section">
-      <div class="container section-title" data-aos="fade-up">
-        <span class="section-tag">// ARSENAL —</span>
-        <h2>WEAPON<span>S CACHE</span></h2>
-        <p>Harnessing industry-leading tools such as Kali Linux, Burp Suite, Ghidra, Metasploit, Wireshark, and more to conduct in-depth security assessments.</p>
-        <span class="section-line"></span>
-      </div>
-
-      <div class="container tools-grid-wrap">
-        <div class="row justify-content-center gy-2 gx-2" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/kali-linux.png" class="img-fluid" alt="Kali Linux"></div>
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/burp-suite.png" class="img-fluid" alt="Burp Suite"></div>
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/hydra.png" class="img-fluid" alt="Hydra"></div>
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/kali-beef.png" class="img-fluid" alt="BeEF"></div>
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/metsploit.png" class="img-fluid" alt="Metasploit"></div>
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/wireshark.png" class="img-fluid" alt="Wireshark"></div>
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/jhon.png" class="img-fluid" alt="John the Ripper"></div>
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/nmap.png" class="img-fluid" alt="Nmap"></div>
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/onion_tor.png" class="img-fluid" alt="Tor"></div>
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/kali-aircrack-ng.png" class="img-fluid" alt="Aircrack-ng"></div>
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/wifite.png" class="img-fluid" alt="Wifite"></div>
-          <div class="col-lg-1 col-md-2 col-3"><img src="assets/img/tools/kali-sparta.png" class="img-fluid" alt="Sparta"></div>
-        </div>
-      </div>
-    </section><!-- /Tools Section -->
-
-    <!-- ─── RESUME DOWNLOAD ─── -->
-    <section id="resume" class="contact section">
-      <div class="container section-title php-email-form" data-aos="fade-up">
-        <span class="section-tag">// CREDENTIALS —</span>
-        <h2>Resume at a Glance</h2>
-        <div class="col-md-12 text-center" style="margin-top:2rem;">
-          <a class="download-btn"
-             href="assets/resume/Yashdeep_Cyber_Domain.pdf"
-             target="_blank" rel="noopener" download>
-            <span>⬇ Export CV</span>
-          </a>
         </div>
       </div>
     </section>
 
-    <!-- ─── CONTACT SECTION ─── -->
-    <section id="contact" class="contact section">
-      <div class="container section-title" data-aos="fade-up">
-        <span class="section-tag">// COMM.CHANNEL —</span>
-        <h2>PING <span>ME</span></h2>
-        <p>Let's connect! Feel free to reach out for collaborations, inquiries, or exciting opportunities.</p>
-        <span class="section-line"></span>
-      </div>
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="info-wrap" data-aos="fade-up" data-aos-delay="200">
-          <div class="row gy-5">
-
-            <div class="col-lg-4">
-              <div class="info-item d-flex align-items-center gap-3">
-                <a href="tel:+919898694801" title="Call Me" class="contact-icon-link">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.23h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 6.27 6.27l.96-.96a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                </a>
-                <div>
-                  <h3>Call Me</h3>
-                  <p>+91 9898694801</p>
-                </div>
+    <!-- EDUCATION / RESUME -->
+    <section id="education" class="education section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <span class="sec-num">03.</span><h2>Resume<span class="accent">_</span></h2>
+          <div class="title-bar"></div>
+        </div>
+        <div class="row gy-4">
+          <div class="col-lg-6" data-aos="fade-right">
+            <div class="resume-group">
+              <div class="rg-title"><i class="bi bi-mortarboard"></i> Education</div>
+              <div class="resume-card">
+                <div class="rc-dot"></div>
+                <div class="rc-date">April 2025 | CGPA: 8.36</div>
+                <h4 class="rc-role">Bachelor of Technology — Cybersecurity</h4>
+                <div class="rc-org">Silver Oak University, Ahmedabad, Gujarat, IN</div>
+                <p class="rc-desc">Focused on cybersecurity fundamentals, digital forensics, incident response, and network security. Gained practical exposure through labs and projects such as forensic investigation using Autopsy, network traffic analysis, and vulnerability assessment.</p>
+              </div>
+              <div class="resume-card">
+                <div class="rc-dot"></div>
+                <div class="rc-date">May 2021 | Score: 65%</div>
+                <h4 class="rc-role">Higher Secondary (HSC) — Mathematics (Science Group A)</h4>
+                <div class="rc-org">Eklavya School of Science, Ahmedabad, Gujarat, IN</div>
+                <p class="rc-desc">Completed higher secondary education with core academic focus and foundational technical learning.</p>
               </div>
             </div>
-
-            <div class="col-lg-4">
-              <div class="info-item d-flex align-items-center gap-3">
-                <a href="https://www.google.com/maps/search/?api=1&query=Ahmedabad,Gujarat,India" target="_blank" rel="noopener" title="Open Location" class="contact-icon-link">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </a>
-                <div>
-                  <h3>Address</h3>
-                  <p>Ahmedabad,<br>Gujarat, IN</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-4">
-              <div class="info-item d-flex align-items-center gap-3">
-                <a href="/cdn-cgi/l/email-protection#3c45084f544f595f7c4c4e53485352125159" title="Send Email" class="contact-icon-link">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                </a>
-                <div>
-                  <h3>Email Us</h3>
-                  <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="acd598dfc4dfc9cfecdcdec3d8c3c282c1c9">[email&#160;protected]</a></p>
-                </div>
-              </div>
-            </div>
-
           </div>
-        </div><!-- /info-wrap -->
-
-        <!-- Ping Easter Egg -->
-        <div class="ping-hover text-center">
-          <p>🛜</p>
-          <div class="ping-container">
-            <p>Describe your security requirements below to initiate a confidential discussion 🔐</p>
+          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+            <div class="resume-group">
+              <div class="rg-title"><i class="bi bi-terminal"></i> Professional Experience</div>
+              <div class="resume-card">
+                <div class="rc-dot cyan"></div>
+                <div class="rc-date">Oct 2023 – Present</div>
+                <h4 class="rc-role">Network Engineer (Switching)</h4>
+                <div class="rc-org">Zen Exim Pvt. Ltd.</div>
+                <ul class="rc-list">
+                  <li>Design and deploy switching solutions across access, distribution, and core network layers.</li>
+                  <li>Configure VLANs, trunking, STP, EtherChannel, and Layer 2/Layer 3 switching features.</li>
+                  <li>Implement port security and network hardening practices to strengthen infrastructure security.</li>
+                  <li>Monitor network health, perform troubleshooting and firmware upgrades using Wireshark and SolarWinds.</li>
+                </ul>
+              </div>
+              <div class="resume-card">
+                <div class="rc-dot cyan"></div>
+                <div class="rc-date">Aug 2025 – Sep 2025</div>
+                <h4 class="rc-role">Cybersecurity Intern</h4>
+                <div class="rc-org">Secuerium Technologies</div>
+                <ul class="rc-list">
+                  <li>Performed VAPT on internal web applications and identified vulnerabilities.</li>
+                  <li>Executed OWASP-based vulnerability assessment and documented findings with remediation steps.</li>
+                  <li>Supported remediation verification and final security reporting.</li>
+                </ul>
+              </div>
+              <div class="resume-card">
+                <div class="rc-dot cyan"></div>
+                <div class="rc-date">Aug 2024 – Sep 2024</div>
+                <h4 class="rc-role">Cyber Crime Investigator Intern</h4>
+                <div class="rc-org">Cyber Forensics Solutions (CFSS)</div>
+                <ul class="rc-list">
+                  <li>Assisted in forensic investigation workflows and digital evidence handling processes.</li>
+                  <li>Performed metadata extraction and analysis to support investigation tasks.</li>
+                  <li>Prepared case documentation and digital evidence reporting.</li>
+                </ul>
+              </div>
+              <div class="resume-card">
+                <div class="rc-dot cyan"></div>
+                <div class="rc-date">Jul 2024 – Aug 2024</div>
+                <h4 class="rc-role">Cybersecurity Intern</h4>
+                <div class="rc-org">Prodigy Infotech</div>
+                <ul class="rc-list">
+                  <li>Developed Python-based security tools including Caesar Cipher, Password Strength Checker, and Packet Analyzer.</li>
+                  <li>Improved scripting and automation skills for security tooling and testing.</li>
+                </ul>
+              </div>
+              <div class="resume-card">
+                <div class="rc-dot cyan"></div>
+                <div class="rc-date">Feb 2024 – Mar 2024</div>
+                <h4 class="rc-role">Cybersecurity Intern</h4>
+                <div class="rc-org">Sigma Training Institute</div>
+                <ul class="rc-list">
+                  <li>Performed penetration testing on VPN and wireless networks to identify security gaps.</li>
+                  <li>Conducted OSINT investigation to gather actionable public intelligence.</li>
+                  <li>Assisted in firewall configuration, access control, and security hardening practices.</li>
+                </ul>
+              </div>
+              <div class="resume-card">
+                <div class="rc-dot cyan"></div>
+                <div class="rc-date">Aug 2023 – Sep 2023</div>
+                <h4 class="rc-role">Cybersecurity Intern</h4>
+                <div class="rc-org">Tech Defence Solutions</div>
+                <ul class="rc-list">
+                  <li>Completed hands-on labs on TryHackMe, PortSwigger, and Hack The Box (HTB).</li>
+                  <li>Improved practical understanding of common web vulnerabilities, enumeration, and reporting.</li>
+                  <li>Strengthened core concepts of ethical hacking and web exploitation techniques.</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
+        <div class="text-center mt-5" data-aos="fade-up">
+          <a class="btn-cyber" href="assets/resume/Yashdeep_Cyber_Domain.pdf" target="_blank" rel="noopener" download>&#8681; Export CV / Resume</a>
+        </div>
+      </div>
+    </section>
 
-        <!-- Contact Form -->
-        <form action="https://api.web3forms.com/submit" method="POST"
-              class="php-email-form" data-aos="fade-up" data-aos-delay="300">
+    <!-- PORTFOLIO -->
+    <section id="portfolio" class="portfolio section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <span class="sec-num">04.</span><h2>Projects<span class="accent">_</span></h2>
+          <div class="title-bar"></div>
+          <p class="sec-sub">Delivering cutting-edge solutions and innovative security tools to fortify the digital landscape.</p>
+        </div>
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-cy">Cybersecurity</li>
+            <li data-filter=".filter-dev">Development</li>
+          </ul>
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
-          <input type="hidden" name="access_key" value="639d8962-798d-45e2-b33e-3b9681114219">
-          <input type="hidden" name="redirect" value="thankyou.html">
-
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control"
-                     placeholder="AGENT_NAME" required>
-            </div>
-
-            <div class="col-md-6">
-              <input type="email" name="email" class="form-control"
-                     placeholder="agent@secure.com" required>
-            </div>
-
-            <div class="col-md-12">
-              <div class="custom-select">
-                <div class="select-selected">Type of Inquiry</div>
-                <div class="select-items select-hide">
-                  <div>Penetration Testing</div>
-                  <div>Bug Bounty</div>
-                  <div>Security Consulting</div>
-                  <div>Web Security Audit</div>
+            <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-cy">
+              <div class="proj-card">
+                <div class="proj-header">
+                  <div class="proj-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                  <span class="proj-tag">CYBERSECURITY</span>
+                </div>
+                <div class="proj-img-wrap">
+                  <img src="assets/img/portfolio/placeholder.png" class="img-fluid proj-img" alt="Digital Evidence Investigation">
+                  <div class="proj-overlay">
+                    <a href="assets/img/portfolio/placeholder.png" data-gallery="portfolio-gallery-cy" class="glightbox" title="Digital Evidence Investigation (Autopsy)"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-autopsy.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-date">Aug–Sep 2024</div>
+                  <h4 class="proj-title">Digital Evidence Investigation (Autopsy)</h4>
+                  <p class="proj-desc">Performed forensic image analysis, recovered deleted files, and reconstructed user activity.</p>
+                  <div class="proj-tags"><span>DFIR</span><span>Autopsy</span><span>Forensics</span></div>
+                  <a href="portfolio-autopsy.html" class="proj-link">View Details <i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
             </div>
 
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6"
-                        placeholder="Briefly describe your security concern or objective" required></textarea>
+            <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-dev">
+              <div class="proj-card">
+                <div class="proj-header">
+                  <div class="proj-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                  <span class="proj-tag dev">DEVELOPMENT</span>
+                </div>
+                <div class="proj-img-wrap">
+                  <img src="assets/img/portfolio/placeholder.png" class="img-fluid proj-img" alt="Network Packet Analyzer">
+                  <div class="proj-overlay">
+                    <a href="assets/img/portfolio/placeholder.png" data-gallery="portfolio-gallery-dev" class="glightbox" title="Network Packet Analyzer Tool"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-packet-analyzer.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-date">Jul–Aug 2024</div>
+                  <h4 class="proj-title">Network Packet Analyzer Tool</h4>
+                  <p class="proj-desc">Built Python/Scapy tool for live packet capture and protocol analysis.</p>
+                  <div class="proj-tags"><span>Python</span><span>Scapy</span><span>Networking</span></div>
+                  <a href="portfolio-packet-analyzer.html" class="proj-link">View Details <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
             </div>
 
-            <div class="col-md-12 text-center">
-              <button type="submit">⚡ Send Email</button>
+            <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-cy">
+              <div class="proj-card">
+                <div class="proj-header">
+                  <div class="proj-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                  <span class="proj-tag">CYBERSECURITY</span>
+                </div>
+                <div class="proj-img-wrap">
+                  <img src="assets/img/portfolio/placeholder.png" class="img-fluid proj-img" alt="DDoS Detection">
+                  <div class="proj-overlay">
+                    <a href="assets/img/portfolio/placeholder.png" data-gallery="portfolio-gallery-cy" class="glightbox" title="Network Traffic Analyzer for DDoS Detection"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-ddos-detection.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-date">Apr 2025</div>
+                  <h4 class="proj-title">Network Traffic Analyzer for DDoS Detection</h4>
+                  <p class="proj-desc">Implemented monitoring using Wireshark, Snort, and Wazuh to detect DDoS / IP spoofing.</p>
+                  <div class="proj-tags"><span>Wazuh</span><span>Snort</span><span>IDS</span></div>
+                  <a href="portfolio-ddos-detection.html" class="proj-link">View Details <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 portfolio-item isotope-item filter-cy">
+              <div class="proj-card">
+                <div class="proj-header">
+                  <div class="proj-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
+                  <span class="proj-tag">CYBERSECURITY</span>
+                </div>
+                <div class="proj-img-wrap">
+                  <img src="assets/img/portfolio/placeholder.png" class="img-fluid proj-img" alt="Metasploitable 2 VAPT">
+                  <div class="proj-overlay">
+                    <a href="assets/img/portfolio/placeholder.png" data-gallery="portfolio-gallery-cy" class="glightbox" title="Metasploitable 2 VAPT Lab"><i class="bi bi-zoom-in"></i></a>
+                    <a href="portfolio-metasploitable.html" title="More Details"><i class="bi bi-link-45deg"></i></a>
+                  </div>
+                </div>
+                <div class="proj-body">
+                  <div class="proj-date">Sep 2025</div>
+                  <h4 class="proj-title">Metasploitable 2 VAPT Lab</h4>
+                  <p class="proj-desc">Conducted VAPT identifying vsftpd backdoor and Samba RCE; documented remediation.</p>
+                  <div class="proj-tags"><span>Metasploit</span><span>VAPT</span><span>RCE</span></div>
+                  <a href="portfolio-metasploitable.html" class="proj-link">View Details <i class="bi bi-arrow-right"></i></a>
+                </div>
+              </div>
             </div>
 
           </div>
-        </form>
-
+        </div>
       </div>
-    </section><!-- /Contact Section -->
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" class="certifications section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <span class="sec-num">05.</span><h2>Certifications<span class="accent">_</span></h2>
+          <div class="title-bar"></div>
+          <p class="sec-sub">Demonstrated expertise through industry-recognized certifications, hands-on workshops, and participation in cybersecurity challenges.</p>
+        </div>
+        <div class="row gy-3" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-12"><div class="cert-row"><div class="cert-icon"><i class="bi bi-patch-check"></i></div><div class="cert-info"><span class="cert-name">Google Cybersecurity Professional (Coursera)</span><span class="cert-issuer">Google / Coursera</span></div><div class="cert-date">2024</div></div></div>
+          <div class="col-12"><div class="cert-row"><div class="cert-icon"><i class="bi bi-patch-check"></i></div><div class="cert-info"><span class="cert-name">Foundations of Cybersecurity</span><span class="cert-issuer">Google / Coursera</span></div><div class="cert-date">6 Dec 2023</div></div></div>
+          <div class="col-12"><div class="cert-row"><div class="cert-icon"><i class="bi bi-patch-check"></i></div><div class="cert-info"><span class="cert-name">Connect and Protect: Networks and Network Security</span><span class="cert-issuer">Google / Coursera</span></div><div class="cert-date">06 Feb 2024</div></div></div>
+          <div class="col-12"><div class="cert-row"><div class="cert-icon"><i class="bi bi-patch-check"></i></div><div class="cert-info"><span class="cert-name">Play It Safe: Manage Security Risks</span><span class="cert-issuer">Google / Coursera</span></div><div class="cert-date">01 Jan 2024</div></div></div>
+          <div class="col-12"><div class="cert-row"><div class="cert-icon"><i class="bi bi-patch-check"></i></div><div class="cert-info"><span class="cert-name">Cisco Networking Academy – Networking Basics</span><span class="cert-issuer">Cisco Networking Academy</span></div><div class="cert-date">05 Feb 2025</div></div></div>
+        </div>
+        <div class="row mt-5 gy-4 justify-content-center" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-4 col-md-6"><div class="cert-img-card"><img src="assets/img/portfolio/Foundations of Cybersecurity.jpeg" class="img-fluid" alt="Foundations of Cybersecurity"></div></div>
+          <div class="col-lg-4 col-md-6"><div class="cert-img-card"><img src="assets/img/portfolio/Connect and Protect-Networks and Network Security.jpeg" class="img-fluid" alt="Connect and Protect"></div></div>
+          <div class="col-lg-4 col-md-6"><div class="cert-img-card"><img src="assets/img/portfolio/Play It Safe-Manage Security Risks.jpeg" class="img-fluid" alt="Play It Safe"></div></div>
+          <div class="col-lg-4 col-md-6"><div class="cert-img-card"><img src="assets/img/portfolio/CISCO NETWORKING BASICS CERTIFICATE_pagee.jpg" class="img-fluid" alt="Cisco Networking Basics"></div></div>
+          <div class="col-lg-4 col-md-6"><div class="cert-img-card"><img src="assets/img/portfolio/Red_Team_Lead_Certificate.jpg" class="img-fluid" alt="Red Team Leader"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section id="achievements" class="achievements section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <span class="sec-num">06.</span><h2>Achievements<span class="accent">_</span></h2>
+          <div class="title-bar"></div>
+        </div>
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="ach-card">
+              <div class="ach-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="ach-tag">CTF COMPETITION</span></div>
+              <div class="ach-body">
+                <div class="ach-icon">&#127942;</div>
+                <h4 class="ach-title">RootCipher CTF 2025</h4>
+                <p class="ach-desc">Participated in RootCipher 2025 Capture The Flag (CTF) competition, solving real-world cybersecurity challenges involving web exploitation, OSINT, cryptography, and privilege escalation. Enhanced problem-solving, technical analysis, and hands-on hacking skills in a competitive environment.</p>
+                <div class="ach-img-wrap"><img src="assets/img/portfolio/Root_Cipher_CTF.jpg" alt="RootCipher CTF 2025" class="img-fluid"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="ach-card">
+              <div class="ach-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="ach-tag">NATIONAL LEVEL CTF</span></div>
+              <div class="ach-body">
+                <div class="ach-icon">&#127942;</div>
+                <h4 class="ach-title">Bypass CTF 2025</h4>
+                <p class="ach-desc">Team Lead at Bypass CTF 2025 — 36-hour national-level CTF with 500+ teams, securing <strong>256th rank</strong>. Showcased leadership and practical skills in web exploitation, forensics, and cybersecurity (27–29 Dec 2025).</p>
+                <div class="ach-img-wrap"><img src="assets/img/portfolio/ByPass-CTF-Certificate.jpg" alt="Bypass CTF 2025" class="img-fluid"></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="ach-card">
+              <div class="ach-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="ach-tag">WORKSHOP</span></div>
+              <div class="ach-body">
+                <div class="ach-icon">&#128737;</div>
+                <h4 class="ach-title">Ethical Hacking Workshop — Indian Cyber Club</h4>
+                <p class="ach-desc">Participated individually in a 3-day Ethical Hacking Workshop by Indian Cyber Club, gaining hands-on exposure to ethical hacking techniques and core cybersecurity concepts. Certificate awarded 25th May 2025.</p>
+                <div class="ach-img-wrap"><img src="assets/img/portfolio/ICC CERTIFICATE.jpg" alt="Indian Cyber Club" class="img-fluid"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section id="tools" class="tools section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <span class="sec-num">07.</span><h2>Tools<span class="accent">_</span>&amp; Arsenal</h2>
+          <div class="title-bar"></div>
+          <p class="sec-sub">Harnessing industry-leading tools such as Kali Linux, Burp Suite, Ghidra, Metasploit, Wireshark, and more to conduct in-depth security assessments, identify vulnerabilities, and fortify systems against evolving threats.</p>
+        </div>
+        <div class="tools-grid" data-aos="fade-up" data-aos-delay="100">
+          <div class="tool-item"><img src="assets/img/tools/kali-linux.png" alt="Kali Linux"><span>Kali Linux</span></div>
+          <div class="tool-item"><img src="assets/img/tools/burp-suite.png" alt="Burp Suite"><span>Burp Suite</span></div>
+          <div class="tool-item"><img src="assets/img/tools/hydra.png" alt="Hydra"><span>Hydra</span></div>
+          <div class="tool-item"><img src="assets/img/tools/kali-beef.png" alt="BeEF"><span>BeEF</span></div>
+          <div class="tool-item"><img src="assets/img/tools/metsploit.png" alt="Metasploit"><span>Metasploit</span></div>
+          <div class="tool-item"><img src="assets/img/tools/wireshark.png" alt="Wireshark"><span>Wireshark</span></div>
+          <div class="tool-item"><img src="assets/img/tools/jhon.png" alt="John the Ripper"><span>John the Ripper</span></div>
+          <div class="tool-item"><img src="assets/img/tools/nmap.png" alt="Nmap"><span>Nmap</span></div>
+          <div class="tool-item"><img src="assets/img/tools/onion_tor.png" alt="Tor"><span>Tor</span></div>
+          <div class="tool-item"><img src="assets/img/tools/kali-aircrack-ng.png" alt="Aircrack-ng"><span>Aircrack-ng</span></div>
+          <div class="tool-item"><img src="assets/img/tools/wifite.png" alt="Wifite"><span>Wifite</span></div>
+          <div class="tool-item"><img src="assets/img/tools/kali-sparta.png" alt="Sparta"><span>Sparta</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESUME GLANCE -->
+    <section id="resume" class="resume-glance section">
+      <div class="container text-center" data-aos="fade-up">
+        <div class="section-title">
+          <span class="sec-num">08.</span><h2>Resume<span class="accent">_</span>at a Glance</h2>
+          <div class="title-bar"></div>
+        </div>
+        <a class="btn-cyber" href="assets/resume/Yashdeep_Cyber_Domain.pdf" target="_blank" rel="noopener" download>&#8681; Export CV</a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact section">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <span class="sec-num">09.</span><h2>Ping<span class="accent">_</span>Me</h2>
+          <div class="title-bar"></div>
+          <p class="sec-sub">Let's connect! Feel free to reach out for collaborations, inquiries, or exciting opportunities.</p>
+        </div>
+        <div class="row gy-5">
+          <div class="col-lg-4" data-aos="fade-right">
+            <div class="contact-info-panel">
+              <div class="panel-hdr"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="term-title">contact.info</span></div>
+              <div class="ci-body">
+                <a href="tel:+919898694801" class="ci-row"><span class="ci-icon"><i class="bi bi-telephone"></i></span><span class="ci-text"><strong>Call Me</strong><br>+91 9898694801</span></a>
+                <a href="https://www.google.com/maps/search/?api=1&query=Ahmedabad,Gujarat,India" target="_blank" rel="noopener" class="ci-row"><span class="ci-icon"><i class="bi bi-geo-alt"></i></span><span class="ci-text"><strong>Address</strong><br>Ahmedabad, Gujarat, IN</span></a>
+                <a href="/cdn-cgi/l/email-protection#e49dd0978c978187a494968b908b8aca8981" class="ci-row"><span class="ci-icon"><i class="bi bi-envelope"></i></span><span class="ci-text"><strong>Email</strong><br><span class="__cf_email__" data-cfemail="83fab7f0ebf0e6e0c3f3f1ecf7ecedadeee6">[email&#160;protected]</span></span></a>
+                <a href="https://github.com/y4shsec" target="_blank" class="ci-row"><span class="ci-icon"><i class="fa-brands fa-github"></i></span><span class="ci-text"><strong>GitHub</strong><br>github.com/y4shsec</span></a>
+                <a href="https://www.linkedin.com/in/yashdeep-sankhla-1a175b2bb/" target="_blank" class="ci-row"><span class="ci-icon"><i class="fa-brands fa-linkedin"></i></span><span class="ci-text"><strong>LinkedIn</strong><br>yashdeep-sankhla</span></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-8" data-aos="fade-left" data-aos-delay="100">
+            <div class="contact-form-panel">
+              <div class="panel-hdr"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span class="term-title">secure_message.form — encrypted</span></div>
+              <div class="form-body">
+                <form action="https://api.web3forms.com/submit" method="POST" class="php-email-form">
+                  <input type="hidden" name="access_key" value="639d8962-798d-45e2-b33e-3b9681114219">
+                  <input type="hidden" name="redirect" value="thankyou.html">
+                  <div class="row gy-3">
+                    <div class="col-md-6"><div class="form-field"><label class="field-label">Your Name</label><input type="text" name="name" placeholder="root@hostname" required></div></div>
+                    <div class="col-md-6"><div class="form-field"><label class="field-label">Your Email</label><input type="email" name="email" placeholder="user@domain.com" required></div></div>
+                    <div class="col-12"><div class="form-field"><label class="field-label">Type of Inquiry</label><select name="inquiry"><option value="">-- SELECT INQUIRY TYPE --</option><option>Penetration Testing</option><option>Bug Bounty</option><option>Security Consulting</option><option>Web Security Audit</option></select></div></div>
+                    <div class="col-12"><div class="form-field"><label class="field-label">Message</label><textarea name="message" rows="6" placeholder="Briefly describe your security concern or objective..." required></textarea></div></div>
+                    <div class="col-12"><button type="submit" class="btn-cyber w-100">&#9658; Send Message</button></div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <!-- ─── FOOTER ─── -->
-  <footer id="footer" class="footer accent-background">
-    <div class="copyright text-center">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Sentinel</strong>
-         <span>All Rights Reserved</span></p>
-    </div>
-    <div class="logo-page">
-      <a href="https://github.com/y4shsec" target="_blank" rel="noopener" title="GitHub">
-        <i class="fa-brands fa-github"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/yashdeep-sankhla-1a175b2bb/" target="_blank" rel="noopener" title="LinkedIn">
-        <i class="fa-brands fa-linkedin"></i>
-      </a>
+  <!-- FOOTER -->
+  <footer id="footer" class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">[SENTINEL::SYS]</div>
+      <p class="footer-copy">&copy; 2025 <strong>Yashdeep Sankhla</strong> &mdash; All Rights Reserved</p>
+      <div class="footer-links">
+        <a href="https://github.com/y4shsec" target="_blank"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/yashdeep-sankhla-1a175b2bb/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
     </div>
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center">
-    <i class="bi bi-arrow-up-short"></i>
-  </a>
+  <a href="#" id="scroll-top" class="scroll-top"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- ─── VENDOR JS ─── -->
+  <!-- Vendor JS -->
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/typed.js/typed.umd.js"></script>
@@ -833,8 +619,6 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-
-  <!-- Main JS -->
   <script src="assets/js/main.js"></script>
 
 </body>

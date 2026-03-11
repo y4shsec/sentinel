@@ -1,476 +1,390 @@
 /**
- * =====================================================
- *  SENTINEL PORTFOLIO — MAIN JAVASCRIPT
- *  assets/js/main.js
- *  Author: Yashdeep Sankhla (Sentinel)
- * =====================================================
+ * SENTINEL PORTFOLIO — main.js
+ * Cyberpunk Hacker Dashboard
  */
 
 (function () {
   'use strict';
 
-  /* ─────────────────────────────────────────────────
-   *  1. PRELOADER BOOT SEQUENCE
-   * ───────────────────────────────────────────────── */
-  const preloader = document.getElementById('preloader');
-
+  /* ═══════════════════════════════════════════
+     1. PRELOADER
+  ═══════════════════════════════════════════ */
+  var preloader = document.getElementById('preloader');
   if (preloader) {
-    // Boot message cycling (visual only — CSS handles actual hide)
-    const bootMessages = [
+    var bootMsgs = [
+      'INITIALIZING SECURE ENVIRONMENT...',
       'LOADING KERNEL MODULES...',
       'MOUNTING ENCRYPTED FILESYSTEM...',
       'ESTABLISHING SECURE CONNECTION...',
-      'INITIALIZING THREAT DATABASE...',
-      'CALIBRATING SENSORS...',
-      'SYSTEM READY.'
+      'CALIBRATING THREAT DETECTION...',
+      'SYSTEM READY. WELCOME, SENTINEL.'
     ];
-    const bootMsg = document.getElementById('boot-msg');
-    let bIdx = 0;
-    const bootInterval = setInterval(() => {
-      bIdx++;
-      if (bootMsg && bIdx < bootMessages.length) bootMsg.textContent = bootMessages[bIdx];
-      if (bIdx >= bootMessages.length - 1) clearInterval(bootInterval);
-    }, 380);
+    var msgEl = document.getElementById('boot-msg');
+    var mi = 0;
+    var bootInterval = setInterval(function () {
+      mi++;
+      if (msgEl && mi < bootMsgs.length) msgEl.textContent = bootMsgs[mi];
+      if (mi >= bootMsgs.length - 1) clearInterval(bootInterval);
+    }, 450);
 
-    // JS-side hide as extra safety on top of CSS animation
-    // CSS animation already hides at 3.2s — this is just a backup
-    setTimeout(() => {
+    function hidePreloader() {
+      preloader.style.transition = 'opacity 0.5s ease';
       preloader.style.opacity = '0';
-      preloader.style.visibility = 'hidden';
-      preloader.style.display = 'none';
-    }, 3400);
+      setTimeout(function () { preloader.style.display = 'none'; }, 600);
+    }
+    // Hard timeout — never stays stuck
+    setTimeout(hidePreloader, 3000);
+    window.addEventListener('load', function () { setTimeout(hidePreloader, 200); });
   }
 
-  /* ─────────────────────────────────────────────────
-   *  2. MATRIX RAIN CANVAS
-   * ───────────────────────────────────────────────── */
-  const canvas = document.getElementById('matrix-canvas');
+  /* ═══════════════════════════════════════════
+     2. MATRIX RAIN
+  ═══════════════════════════════════════════ */
+  var canvas = document.getElementById('matrix-canvas');
   if (canvas) {
-    const ctx = canvas.getContext('2d');
-    const chars = '01アイウエオカキクケコサシスセソABCDEF!@#$%^&*<>/\\|{}[]?';
-    const fontSize = 12;
-    let cols, drops;
+    var ctx = canvas.getContext('2d');
+    var chars = '01アイウエオカキクケABCDEF!@#$%^&*<>/|{}[]?+=~01';
+    var fSize = 13;
+    var drops = [];
 
-    function resizeMatrix() {
+    function resizeCanvas() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-      cols = Math.floor(canvas.width / fontSize);
-      drops = Array(cols).fill(1);
-    }
-
-    resizeMatrix();
-    window.addEventListener('resize', resizeMatrix);
-
-    function drawMatrix() {
-      ctx.fillStyle = 'rgba(2,4,8,0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.font = `${fontSize}px "Share Tech Mono", monospace`;
-
-      for (let i = 0; i < drops.length; i++) {
-        const char = chars[Math.floor(Math.random() * chars.length)];
-        const alpha = drops[i] * fontSize > canvas.height * 0.75
-          ? 0.2 + Math.random() * 0.15
-          : 0.25 + Math.random() * 0.45;
-        ctx.fillStyle = `rgba(0,255,65,${alpha})`;
-        ctx.fillText(char, i * fontSize, drops[i] * fontSize);
-
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-          drops[i] = 0;
-        }
-        drops[i]++;
+      var cols = Math.floor(canvas.width / fSize);
+      drops = [];
+      for (var i = 0; i < cols; i++) {
+        drops[i] = Math.random() * -100;
       }
     }
 
-    setInterval(drawMatrix, 55);
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas, { passive: true });
+
+    setInterval(function () {
+      ctx.fillStyle = 'rgba(2,4,8,0.055)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.font = fSize + 'px "Share Tech Mono", monospace';
+      for (var i = 0; i < drops.length; i++) {
+        var ch = chars[Math.floor(Math.random() * chars.length)];
+        var alpha = 0.1 + Math.random() * 0.45;
+        ctx.fillStyle = 'rgba(0,255,65,' + alpha + ')';
+        ctx.fillText(ch, i * fSize, drops[i] * fSize);
+        if (drops[i] * fSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i] += 0.5;
+      }
+    }, 50);
   }
 
-  /* ─────────────────────────────────────────────────
-   *  3. LIVE NAV CLOCK
-   * ───────────────────────────────────────────────── */
-  const clockEl = document.getElementById('nav-clock');
+  /* ═══════════════════════════════════════════
+     3. LIVE CLOCK
+  ═══════════════════════════════════════════ */
+  var clockEl = document.getElementById('nav-clock');
   if (clockEl) {
     function updateClock() {
-      const now = new Date();
-      clockEl.textContent = now.toTimeString().substring(0, 8);
+      clockEl.textContent = new Date().toTimeString().substring(0, 8);
     }
     updateClock();
     setInterval(updateClock, 1000);
   }
 
-  /* ─────────────────────────────────────────────────
-   *  4. MOBILE NAV TOGGLE
-   * ───────────────────────────────────────────────── */
-  const mobileToggle = document.querySelector('.mobile-nav-toggle');
-  const navUl = document.querySelector('.navmenu ul');
-
-  if (mobileToggle && navUl) {
-    mobileToggle.addEventListener('click', () => {
-      navUl.classList.toggle('mobile-open');
-      mobileToggle.classList.toggle('bi-x');
-      mobileToggle.classList.toggle('bi-list');
-    });
-
-    // Close on nav link click
-    navUl.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        navUl.classList.remove('mobile-open');
-        mobileToggle.classList.remove('bi-x');
-        mobileToggle.classList.add('bi-list');
-      });
-    });
-  }
-
-  /* ─────────────────────────────────────────────────
-   *  5. ACTIVE NAV ON SCROLL
-   * ───────────────────────────────────────────────── */
-  function updateActiveNav() {
-    const sections = document.querySelectorAll('section[id]');
-    const scrollY = window.scrollY + 80;
-    let currentId = '';
-
-    sections.forEach(sec => {
-      if (scrollY >= sec.offsetTop) currentId = sec.id;
-    });
-
-    document.querySelectorAll('.navmenu a').forEach(a => {
-      a.classList.remove('active');
-      if (a.getAttribute('href') === '#' + currentId) a.classList.add('active');
-    });
-  }
-
-  window.addEventListener('scroll', updateActiveNav, { passive: true });
-
-  /* ─────────────────────────────────────────────────
-   *  6. SCROLL-TO-TOP BUTTON
-   * ───────────────────────────────────────────────── */
-  const scrollTop = document.getElementById('scroll-top');
-  if (scrollTop) {
-    window.addEventListener('scroll', () => {
-      scrollTop.classList.toggle('active', window.scrollY > 400);
+  /* ═══════════════════════════════════════════
+     4. HEADER SCROLL EFFECT
+  ═══════════════════════════════════════════ */
+  var header = document.getElementById('header');
+  if (header) {
+    window.addEventListener('scroll', function () {
+      header.classList.toggle('scrolled', window.scrollY > 50);
     }, { passive: true });
+  }
 
-    scrollTop.addEventListener('click', e => {
+  /* ═══════════════════════════════════════════
+     5. MOBILE NAV
+  ═══════════════════════════════════════════ */
+  var mobileBtn = document.getElementById('mobileBtn');
+  var mobileOverlay = document.getElementById('mobile-nav-overlay');
+  var mobClose = document.getElementById('mobClose');
+
+  function openMob() {
+    if (mobileOverlay) mobileOverlay.classList.add('open');
+  }
+  function closeMob() {
+    if (mobileOverlay) mobileOverlay.classList.remove('open');
+  }
+
+  // Expose closeMob globally for onclick attributes
+  window.closeMob = closeMob;
+
+  if (mobileBtn) mobileBtn.addEventListener('click', openMob);
+  if (mobClose) mobClose.addEventListener('click', closeMob);
+
+  // Close on overlay link clicks
+  if (mobileOverlay) {
+    mobileOverlay.querySelectorAll('.mob-link').forEach(function (a) {
+      a.addEventListener('click', closeMob);
+    });
+    // Close on outside click
+    document.addEventListener('click', function (e) {
+      if (mobileOverlay.classList.contains('open') &&
+        mobileBtn && !mobileBtn.contains(e.target) &&
+        !mobileOverlay.contains(e.target)) {
+        closeMob();
+      }
+    });
+  }
+
+  /* ═══════════════════════════════════════════
+     6. SMOOTH SCROLL (safe)
+  ═══════════════════════════════════════════ */
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var href = a.getAttribute('href');
+      if (!href || href === '#') return;
+      try {
+        var target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          closeMob();
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      } catch (_) { }
+    });
+  });
+
+  /* ═══════════════════════════════════════════
+     7. ACTIVE NAV SCROLLSPY
+  ═══════════════════════════════════════════ */
+  function scrollspy() {
+    var scrollY = window.scrollY + 120;
+    var current = '';
+    document.querySelectorAll('section[id]').forEach(function (s) {
+      if (scrollY >= s.offsetTop) current = s.id;
+    });
+    document.querySelectorAll('.navmenu a, .mob-link').forEach(function (a) {
+      a.classList.remove('active');
+      var href = a.getAttribute('href');
+      if (href && href === '#' + current) a.classList.add('active');
+    });
+  }
+  window.addEventListener('scroll', scrollspy, { passive: true });
+  window.addEventListener('load', scrollspy);
+
+  /* ═══════════════════════════════════════════
+     8. SCROLL TO TOP
+  ═══════════════════════════════════════════ */
+  var scrollTopBtn = document.querySelector('.scroll-top');
+  if (scrollTopBtn) {
+    window.addEventListener('scroll', function () {
+      scrollTopBtn.classList.toggle('active', window.scrollY > 400);
+    }, { passive: true });
+    scrollTopBtn.addEventListener('click', function (e) {
       e.preventDefault();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
-  /* ─────────────────────────────────────────────────
-   *  7. SMOOTH SCROLL FOR ANCHOR LINKS
-   * ───────────────────────────────────────────────── */
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', e => {
-      const target = document.querySelector(anchor.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  /* ═══════════════════════════════════════════
+     9. TYPED.JS
+  ═══════════════════════════════════════════ */
+  window.addEventListener('load', function () {
+    var typedEl = document.querySelector('.typed');
+    if (typedEl && typeof Typed !== 'undefined') {
+      var items = typedEl.getAttribute('data-typed-items');
+      if (items) {
+        new Typed('.typed', {
+          strings: items.split(',').map(function (s) { return s.trim(); }),
+          loop: true,
+          typeSpeed: 80,
+          backSpeed: 45,
+          backDelay: 2200
+        });
       }
-    });
+    }
   });
 
-  /* ─────────────────────────────────────────────────
-   *  8. HERO TYPING ANIMATION
-   * ───────────────────────────────────────────────── */
-  const typedEl = document.getElementById('typed-hero');
-  if (typedEl) {
-    // Use Typed.js if available, else custom implementation
-    if (typeof Typed !== 'undefined') {
-      new Typed('#typed-hero', {
-        strings: [
-          'Cybersecurity Analyst',
-          'VAPT Analyst',
-          'Bug Bounty Learner',
-          'CTF Player',
-          'SOC Analyst'
-        ],
-        typeSpeed: 70,
-        backSpeed: 40,
-        backDelay: 2000,
-        loop: true,
-        cursorChar: '█'
-      });
+  /* ═══════════════════════════════════════════
+     10. SKILL BARS (IntersectionObserver)
+  ═══════════════════════════════════════════ */
+  function animateSkills() {
+    document.querySelectorAll('.sk-bar').forEach(function (bar) {
+      var pct = bar.getAttribute('aria-valuenow');
+      if (pct) bar.style.width = pct + '%';
+    });
+  }
+
+  var skillPanel = document.querySelector('.skills-animation');
+  if (skillPanel) {
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries, obs) {
+        if (entries[0].isIntersecting) {
+          animateSkills();
+          obs.disconnect();
+        }
+      }, { threshold: 0.2 });
+      observer.observe(skillPanel);
     } else {
-      // Fallback custom typist
-      const roles = ['Cybersecurity Analyst', 'VAPT Analyst', 'Bug Bounty Learner', 'CTF Player', 'SOC Analyst'];
-      let rIdx = 0, cIdx = 0, deleting = false;
-
-      function typeStep() {
-        const cur = roles[rIdx];
-        const text = deleting ? cur.substring(0, cIdx--) : cur.substring(0, cIdx++);
-        typedEl.textContent = text;
-
-        if (!deleting && cIdx > cur.length) {
-          setTimeout(() => { deleting = true; typeStep(); }, 2000);
-          return;
-        }
-        if (deleting && cIdx < 0) {
-          deleting = false; cIdx = 0;
-          rIdx = (rIdx + 1) % roles.length;
-        }
-        setTimeout(typeStep, deleting ? 38 : 75);
-      }
-
-      setTimeout(typeStep, 2600);
+      animateSkills();
     }
   }
 
-  /* ─────────────────────────────────────────────────
-   *  9. SKILL BAR ANIMATION (IntersectionObserver)
-   * ───────────────────────────────────────────────── */
-  const skillBars = document.querySelectorAll('.progress-bar');
-  if (skillBars.length) {
-    const skillObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const bar = entry.target;
-          const val = bar.getAttribute('aria-valuenow');
-          if (val) bar.style.width = val + '%';
-          skillObserver.unobserve(bar);
-        }
-      });
-    }, { threshold: 0.25 });
-
-    skillBars.forEach(bar => skillObserver.observe(bar));
-  }
-
-  /* ─────────────────────────────────────────────────
-   *  10. FADE-IN ON SCROLL (IntersectionObserver)
-   * ───────────────────────────────────────────────── */
-  const fadeEls = document.querySelectorAll('.fade-in, [data-aos]');
-  if (fadeEls.length) {
-    const fadeObserver = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-          entry.target.classList.add('aos-animate');
-        }
-      });
-    }, { threshold: 0.08 });
-
-    fadeEls.forEach(el => fadeObserver.observe(el));
-  }
-
-  /* ─────────────────────────────────────────────────
-   *  11. PORTFOLIO ISOTOPE FILTER (with isotope.js or fallback)
-   * ───────────────────────────────────────────────── */
-  function initPortfolioFilter() {
-    const filtersContainer = document.querySelector('.portfolio-filters');
-    const grid = document.querySelector('.isotope-container');
-
-    if (!filtersContainer || !grid) return;
-
-    if (typeof Isotope !== 'undefined' && typeof imagesLoaded !== 'undefined') {
-      imagesLoaded(grid, () => {
-        const iso = new Isotope(grid, {
-          itemSelector: '.isotope-item',
-          layoutMode: 'masonry'
-        });
-
-        filtersContainer.querySelectorAll('li').forEach(btn => {
-          btn.addEventListener('click', () => {
-            filtersContainer.querySelector('.filter-active')?.classList.remove('filter-active');
-            btn.classList.add('filter-active');
-            iso.arrange({ filter: btn.dataset.filter === '*' ? '*' : '.' + btn.dataset.filter });
-          });
-        });
-      });
-    } else {
-      // Fallback JS filter
-      filtersContainer.querySelectorAll('li').forEach(btn => {
-        btn.addEventListener('click', () => {
-          filtersContainer.querySelector('.filter-active')?.classList.remove('filter-active');
-          btn.classList.add('filter-active');
-
-          const filter = btn.dataset.filter;
-          grid.querySelectorAll('.isotope-item').forEach(item => {
-            if (filter === '*' || item.classList.contains(filter.replace('.', ''))) {
-              item.style.display = '';
-            } else {
-              item.style.display = 'none';
-            }
-          });
-        });
-      });
+  /* ═══════════════════════════════════════════
+     11. AOS INIT
+  ═══════════════════════════════════════════ */
+  window.addEventListener('load', function () {
+    if (typeof AOS !== 'undefined') {
+      AOS.init({ duration: 650, easing: 'ease-in-out', once: true, offset: 60 });
     }
-  }
-
-  initPortfolioFilter();
-
-  /* ─────────────────────────────────────────────────
-   *  12. GLIGHTBOX INIT
-   * ───────────────────────────────────────────────── */
-  if (typeof GLightbox !== 'undefined') {
-    GLightbox({ selector: '.glightbox' });
-  }
-
-  /* ─────────────────────────────────────────────────
-   *  13. SWIPER INIT (portfolio detail sliders)
-   * ───────────────────────────────────────────────── */
-  function initSwipers() {
-    if (typeof Swiper === 'undefined') return;
-
-    document.querySelectorAll('.init-swiper').forEach(el => {
-      const configEl = el.querySelector('.swiper-config');
-      let config = {};
-      try {
-        if (configEl) config = JSON.parse(configEl.textContent.trim());
-      } catch (e) {
-        console.warn('Swiper config parse error', e);
-      }
-      new Swiper(el, config);
-    });
-  }
-
-  initSwipers();
-
-  /* ─────────────────────────────────────────────────
-   *  14. AOS INIT (if AOS loaded)
-   * ───────────────────────────────────────────────── */
-  if (typeof AOS !== 'undefined') {
-    AOS.init({
-      duration: 700,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false,
-      offset: 80
-    });
-  }
-
-  /* ─────────────────────────────────────────────────
-   *  15. PURECOUNTER (stats counter)
-   * ───────────────────────────────────────────────── */
-  if (typeof PureCounter !== 'undefined') {
-    new PureCounter();
-  }
-
-  /* ─────────────────────────────────────────────────
-   *  16. WAYPOINTS (skill bar trigger fallback)
-   * ───────────────────────────────────────────────── */
-  const skillsSection = document.querySelector('.skills-animation');
-  if (skillsSection && typeof Waypoint !== 'undefined') {
-    new Waypoint({
-      element: skillsSection,
-      handler: function () {
-        document.querySelectorAll('.progress-bar').forEach(bar => {
-          const val = bar.getAttribute('aria-valuenow');
-          if (val) bar.style.width = val + '%';
-        });
-      },
-      offset: '80%'
-    });
-  }
-
-  /* ─────────────────────────────────────────────────
-   *  17. CUSTOM SELECT DROPDOWN
-   * ───────────────────────────────────────────────── */
-  document.querySelectorAll('.custom-select').forEach(select => {
-    const selected = select.querySelector('.select-selected');
-    const items = select.querySelector('.select-items');
-
-    if (!selected || !items) return;
-
-    selected.addEventListener('click', () => {
-      items.classList.toggle('select-hide');
-      selected.classList.toggle('active');
-    });
-
-    items.querySelectorAll('div').forEach(option => {
-      option.addEventListener('click', () => {
-        selected.textContent = option.textContent;
-        items.classList.add('select-hide');
-        selected.classList.remove('active');
+    // Fallback: force visibility after 1.8s
+    setTimeout(function () {
+      document.querySelectorAll('[data-aos]').forEach(function (el) {
+        el.classList.add('aos-animate');
+        el.style.opacity = '1';
+        el.style.transform = 'none';
       });
-    });
+    }, 1800);
+  });
 
-    // Close on outside click
-    document.addEventListener('click', e => {
-      if (!select.contains(e.target)) {
-        items.classList.add('select-hide');
-        selected.classList.remove('active');
+  /* ═══════════════════════════════════════════
+     12. ISOTOPE PORTFOLIO FILTER
+  ═══════════════════════════════════════════ */
+  window.addEventListener('load', function () {
+    document.querySelectorAll('.isotope-layout').forEach(function (layout) {
+      var container = layout.querySelector('.isotope-container');
+      if (!container) return;
+
+      var defaultFilter = layout.getAttribute('data-default-filter') || '*';
+      var iso;
+
+      function initIso() {
+        if (typeof Isotope !== 'undefined') {
+          iso = new Isotope(container, {
+            itemSelector: '.isotope-item',
+            layoutMode: layout.getAttribute('data-layout') || 'masonry',
+            filter: defaultFilter,
+            sortBy: layout.getAttribute('data-sort') || 'original-order'
+          });
+        }
       }
-    });
-  });
 
-  /* ─────────────────────────────────────────────────
-   *  18. GLITCH TEXT EFFECT (title decoration)
-   *      Clones text into ::before / ::after via data-text
-   * ───────────────────────────────────────────────── */
-  document.querySelectorAll('.glitch-title').forEach(el => {
-    el.setAttribute('data-text', el.textContent);
-  });
-
-  /* ─────────────────────────────────────────────────
-   *  19. DECRYPT TEXT EFFECT on hover (opt-in via .decrypt-hover)
-   * ───────────────────────────────────────────────── */
-  const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%';
-
-  document.querySelectorAll('.decrypt-hover').forEach(el => {
-    const original = el.textContent;
-    let interval;
-
-    el.addEventListener('mouseenter', () => {
-      let iteration = 0;
-      clearInterval(interval);
-      interval = setInterval(() => {
-        el.textContent = original.split('').map((char, idx) => {
-          if (idx < iteration) return original[idx];
-          if (char === ' ') return ' ';
-          return CHARS[Math.floor(Math.random() * CHARS.length)];
-        }).join('');
-        if (iteration >= original.length) clearInterval(interval);
-        iteration += 0.5;
-      }, 30);
-    });
-
-    el.addEventListener('mouseleave', () => {
-      clearInterval(interval);
-      el.textContent = original;
-    });
-  });
-
-  /* ─────────────────────────────────────────────────
-   *  20. HEADER SCROLL EFFECT
-   * ───────────────────────────────────────────────── */
-  const header = document.getElementById('header');
-  if (header) {
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        header.style.boxShadow = '0 2px 20px rgba(0,255,65,0.08)';
+      if (typeof imagesLoaded !== 'undefined') {
+        imagesLoaded(container, initIso);
       } else {
-        header.style.boxShadow = 'none';
+        initIso();
       }
-    }, { passive: true });
+
+      layout.querySelectorAll('.isotope-filters li').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var active = layout.querySelector('.isotope-filters .filter-active');
+          if (active) active.classList.remove('filter-active');
+          btn.classList.add('filter-active');
+          var filter = btn.getAttribute('data-filter');
+          if (iso) {
+            iso.arrange({ filter: filter === '*' ? '*' : filter });
+          } else {
+            // Fallback without isotope
+            container.querySelectorAll('.isotope-item').forEach(function (item) {
+              if (filter === '*' || item.classList.contains(filter.replace('.', ''))) {
+                item.style.display = '';
+              } else {
+                item.style.display = 'none';
+              }
+            });
+          }
+        });
+      });
+    });
+  });
+
+  /* ═══════════════════════════════════════════
+     13. GLIGHTBOX
+  ═══════════════════════════════════════════ */
+  window.addEventListener('load', function () {
+    if (typeof GLightbox !== 'undefined') {
+      GLightbox({ selector: '.glightbox' });
+    }
+  });
+
+  /* ═══════════════════════════════════════════
+     14. SWIPER
+  ═══════════════════════════════════════════ */
+  window.addEventListener('load', function () {
+    document.querySelectorAll('.init-swiper').forEach(function (el) {
+      if (typeof Swiper === 'undefined') return;
+      var cfgEl = el.querySelector('.swiper-config');
+      var cfg = {};
+      if (cfgEl) { try { cfg = JSON.parse(cfgEl.textContent.trim()); } catch (_) { } }
+      new Swiper(el, cfg);
+    });
+  });
+
+  /* ═══════════════════════════════════════════
+     15. PURECOUNTER
+  ═══════════════════════════════════════════ */
+  window.addEventListener('load', function () {
+    if (typeof PureCounter !== 'undefined') new PureCounter();
+  });
+
+  /* ═══════════════════════════════════════════
+     16. HASH SCROLL ON LOAD
+  ═══════════════════════════════════════════ */
+  window.addEventListener('load', function () {
+    if (window.location.hash) {
+      try {
+        var target = document.querySelector(window.location.hash);
+        if (target) {
+          setTimeout(function () {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+        }
+      } catch (_) { }
+    }
+  });
+
+  /* ═══════════════════════════════════════════
+     17. GLITCH HOVER EFFECT on project cards
+  ═══════════════════════════════════════════ */
+  document.querySelectorAll('.proj-card').forEach(function (card) {
+    card.addEventListener('mouseenter', function () {
+      var title = card.querySelector('.proj-title');
+      if (title) title.style.textShadow = '0 0 16px rgba(0,255,65,0.6), 2px 0 rgba(0,245,255,0.4)';
+    });
+    card.addEventListener('mouseleave', function () {
+      var title = card.querySelector('.proj-title');
+      if (title) title.style.textShadow = '';
+    });
+  });
+
+  /* ═══════════════════════════════════════════
+     18. DECRYPTION TEXT EFFECT on section titles
+  ═══════════════════════════════════════════ */
+  var cryptoChars = '!<>-_\\/[]{}—=+*^?#';
+
+  function decryptText(el) {
+    var original = el.dataset.value || el.textContent;
+    el.dataset.value = original;
+    var iter = 0;
+    var interval = setInterval(function () {
+      el.textContent = original.split('').map(function (ch, i) {
+        if (i < iter) return original[i];
+        return cryptoChars[Math.floor(Math.random() * cryptoChars.length)];
+      }).join('');
+      if (iter >= original.length) clearInterval(interval);
+      iter += 0.4;
+    }, 30);
   }
 
-  /* ─────────────────────────────────────────────────
-   *  21. CONTACT FORM VALIDATION (web3forms)
-   *      The form posts to web3forms API natively.
-   *      This just adds UX feedback.
-   * ───────────────────────────────────────────────── */
-  const contactForm = document.querySelector('.php-email-form');
-  if (contactForm) {
-    // Already handled by web3forms + redirect to thankyou.html
-    // Optional: add loading state
-    contactForm.addEventListener('submit', () => {
-      const btn = contactForm.querySelector('button[type="submit"]');
-      if (btn) {
-        btn.textContent = 'TRANSMITTING...';
-        btn.disabled = true;
-      }
+  // Apply on section titles when they come into view
+  if ('IntersectionObserver' in window) {
+    document.querySelectorAll('.section-title h2').forEach(function (h2) {
+      var obs = new IntersectionObserver(function (entries, o) {
+        if (entries[0].isIntersecting) {
+          decryptText(h2);
+          o.disconnect();
+        }
+      }, { threshold: 0.5 });
+      obs.observe(h2);
     });
   }
-
-  /* ─────────────────────────────────────────────────
-   *  22. RADAR BLIP POSITIONS (random spawn on radar)
-   * ───────────────────────────────────────────────── */
-  // Handled via SVG in HTML with CSS animations
-
-  /* ─────────────────────────────────────────────────
-   *  23. TOOL IMAGES — zoom on hover fallback
-   * ───────────────────────────────────────────────── */
-  document.querySelectorAll('.portfolio-item.isotope-item img').forEach(img => {
-    img.addEventListener('mouseenter', () => { img.style.transform = 'scale(1.5)'; });
-    img.addEventListener('mouseleave', () => { img.style.transform = 'scale(1)'; });
-  });
 
 })();

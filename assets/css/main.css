@@ -891,15 +891,21 @@ section {
   position: relative;
   overflow: hidden;
   width: 100%;
+  /* padding-top = height/width * 100 = 654/571 * 100 = 114.5% */
+  padding-top: 85%;
   flex-shrink: 0;
+  background: #fff;
 }
 
 .profile-img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 240px;
-  object-fit: cover;
-  object-position: center 30%;
-  filter: grayscale(15%) contrast(1.05);
+  height: 100%;
+  object-fit: cover contain;
+  object-position: center center;
+  filter: grayscale(10%) contrast(1.08);
   display: block;
   transition: filter 0.5s ease;
 }

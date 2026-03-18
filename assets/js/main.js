@@ -388,3 +388,14 @@
   }
 
 })();
+
+/* ── NETWATCH SOC v2 — GIF Tab Switcher ── */
+function nwSwitch(btn, targetId) {
+  // Deactivate all tabs and frames
+  document.querySelectorAll('.nw-tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.nw-frame').forEach(function(f) { f.classList.remove('active'); });
+  // Activate clicked tab and target frame
+  btn.classList.add('active');
+  var frame = document.getElementById(targetId);
+  if (frame) frame.classList.add('active');
+}

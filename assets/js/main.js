@@ -107,10 +107,21 @@
   var mobClose = document.getElementById('mobClose');
 
   function openMob() {
-    if (mobileOverlay) mobileOverlay.classList.add('open');
+    if (mobileOverlay) {
+      mobileOverlay.classList.add('open');
+    }
+    if (mobileBtn) {
+      mobileBtn.setAttribute('aria-expanded', 'true');
+    }
   }
+
   function closeMob() {
-    if (mobileOverlay) mobileOverlay.classList.remove('open');
+    if (mobileOverlay) {
+      mobileOverlay.classList.remove('open');
+    }
+    if (mobileBtn) {
+      mobileBtn.setAttribute('aria-expanded', 'false');
+    }
   }
 
   // Expose closeMob globally for onclick attributes
@@ -124,6 +135,7 @@
     mobileOverlay.querySelectorAll('.mob-link').forEach(function (a) {
       a.addEventListener('click', closeMob);
     });
+
     // Close on outside click
     document.addEventListener('click', function (e) {
       if (mobileOverlay.classList.contains('open') &&

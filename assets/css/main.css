@@ -1940,3 +1940,42 @@ section {
     flex-wrap: wrap;
   }
 }
+
+/* ===== Accessibility & Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+  #matrix-canvas,
+  .scanlines,
+  .radar-sweep,
+  .glitch,
+  .img-scan {
+    display: none !important;
+    animation: none !important;
+  }
+  #preloader {
+    transition: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Clear focus ring for keyboard users */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.btn-cyber:focus-visible,
+.mobile-nav-toggle:focus-visible {
+  outline: 2px solid #00ff41 !important;
+  outline-offset: 3px !important;
+}
+
+/* Ensure form labels are properly associated (already good, reinforce) */
+.form-field label {
+  display: block;
+}
